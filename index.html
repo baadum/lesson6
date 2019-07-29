@@ -9,6 +9,18 @@
 <body>
   
 <script>
+        // 1
+
+function isCharPresent(string) {
+    var string='';
+    if (string == typeof string) {
+        return true;
+    }
+};
+alert(isCharPresent('gngjeio'));
+
+        
+        // 3
 
 var obj1 = {
     key1: 'value1',
@@ -22,9 +34,9 @@ var obj1 = {
         key8: 'value8',
     }
 };
-var clone = {};
 
 function objectClone(obj1) {
+    var clone = {};
     for (var key in obj1) {
         clone[key]=obj1[key]
     };
