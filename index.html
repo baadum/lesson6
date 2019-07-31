@@ -9,31 +9,29 @@
 <body>
   
 <script>
-//         // 1
+// 1
+function isCharPresent(string, symbol) {
+    for (var i=0; i<string.length; i++) {
+        if (string[i]===symbol) {
+            return true;
+        }            
+    }
+    return false;
+};
+console.log(isCharPresent('ring', 'l'));
 
-// function isCharPresent(string,symbol) {
-//     for (var i = 0; i< string.length; i++) {
-//         if (string[i] === symbol) {
-//             return true;
-//         }
-//     }
-//     return false;
-// };
-// console.log(isCharPresent('hello', 'o'));
+// 2
+function isCharPresent(string, symbol) {
+    for (var i=0; i<string.length; i++) {
+        if (string[i]===symbol) {
+            return i;
+        }            
+    }
+    return -1;
+};
+console.log(isCharPresent('ring', 'r'));
 
-//         // 2
-
-//         function isCharPresent(string,symbol) {
-//     for (var i = 0; i< string.length; i++) {
-//         if (string[i] === symbol) {
-//             return i;
-//         }
-//     }
-//     return -1;
-// };
-// console.log(isCharPresent('hello', 'o'));
-        // 3
-
+// 3
 var obj1 = {
     key1: 'value1',
     key2: 'value2',
@@ -47,14 +45,25 @@ var obj1 = {
     }
 };
 
-function objectClone(obj1) {
+function objectClone(object) {
     var clone = {};
-    for (var key in obj1) {
-        clone[key]=obj1[key]
-    };
+    for (var k1 in object) {
+        if(typeof object[k1] === 'object' && object[k1]) {
+
+            var cloneInner = {};
+            for (var k2 in object[k1]) {
+                cloneInner[k2]=object[k1][k2];
+            }
+            clone[k1]=cloneInner;
+        }
+        else {
+            clone[k1]=object[k1]; 
+        }
+    }
     return clone
 }
-console.log(objectClone(obj1));
+var obj3 =objectClone(obj1);
+console.log(obj3);
 
 </script>
 </body>
